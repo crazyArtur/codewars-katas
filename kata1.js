@@ -18,14 +18,17 @@ function NamedOne(first, last) {
         },
         "fullName": {
             get: function() { return this.firstN + ' ' + this.lastN; },
-            set: function(name) { let parts = name.split(' ');
-                                this.firstN = parts[0];
-                                this.lastN = parts[1];
-                            }
+            set: function(name) { 
+                if (name.match(/[a-z]+ [a-z]/i)){
+                    let parts = name.split(' ');
+                        this.firstN = parts[0];
+                        this.lastN = parts[1];
+                }
+            }
         }
 
-        });
-   this.fullN = this.firstN + ' ' + this.lastN;
+    });
+//    this.fullN = this.firstN + ' ' + this.lastN;
 }
 
 var namedOne = new NamedOne('Naomi', 'Wang');
@@ -48,6 +51,11 @@ console.log(namedOne.fullName);
 // console.log(namedOne);
 
 namedOne.fullName = "Obi Wan";
+console.log(namedOne.firstName);
+console.log(namedOne.lastName);
+console.log(namedOne.fullName);
+
+namedOne.fullName = "AnakinSkywalker";
 console.log(namedOne.firstName);
 console.log(namedOne.lastName);
 console.log(namedOne.fullName);
