@@ -5,16 +5,16 @@ function bouncingBall(h,  bounce,  window) {
     if(h < 0 ||
        bounce < 0 ||
        bounce > 1 ||
-       window > h)
+       window >= h)
         return -1;
 
     let rebounce = h * bounce;
     let timesBallWasSeen = 1;
 
     while(rebounce >= window){
-        if(rebounce == window)
-            timesBallWasSeen++;
-        else
+        // if(rebounce == window)
+        //     timesBallWasSeen++;
+        // else
             timesBallWasSeen += 2;
         
         rebounce *= bounce;
@@ -23,4 +23,4 @@ function bouncingBall(h,  bounce,  window) {
 }
 
 
-console.log(bouncingBall(10, 0.5, 1));
+console.log(bouncingBall(2, 0.5, 1));
