@@ -11,7 +11,8 @@ function bouncingBall(h,  bounce,  window) {
     let rebounce = h * bounce;
     let timesBallWasSeen = 1;
 
-    while(rebounce >= window){
+    while(rebounce > window){
+// removed "=" from the condition
         // if(rebounce == window)
         //     timesBallWasSeen++;
         // else
