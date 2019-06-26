@@ -28,7 +28,6 @@ function NamedOne(first, last) {
         }
 
     });
-//    this.fullN = this.firstN + ' ' + this.lastN;
 }
 
 var namedOne = new NamedOne('Naomi', 'Wang');
