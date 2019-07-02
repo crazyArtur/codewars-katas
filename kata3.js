@@ -9,6 +9,9 @@ Do this n times!
 
 function encrypt(text, n) {
     if(text !== null && text != ''){
+        let sourceLength = text.length;
+
+        for(let i = 0; i < )
 
     }
     else
@@ -18,6 +21,8 @@ function encrypt(text, n) {
 
 function decrypt(encryptedText, n) {
     if(encryptedText !== null && encryptedText != ''){
+        let sourceLength = encryptedText.length;
+
 
     }
     else
