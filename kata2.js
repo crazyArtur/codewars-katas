@@ -23,5 +23,26 @@ function bouncingBall(h,  bounce,  window) {
     return timesBallWasSeen;
 }
 
+console.time("qwert");
+console.log(bouncingBall(200, 0.99, 1));
+console.timeEnd("qwert");
 
-console.log(bouncingBall(2, 0.5, 1));
+function bouncingBallX(h,  bounce,  window) {
+    if(h < 0 ||
+       bounce < 0 ||
+       bounce > 1 ||
+       window >= h)
+        return -1;
+
+    let ballSeen = 2;
+
+    if(h > window)
+        return ballSeen += bouncingBallX(h * bounce, bounce, window);
+    else
+        return 1;
+
+}
+
+console.time("zxcv");
+console.log(bouncingBallX(200, 0.99, 1));
+console.timeEnd("zxcv");
