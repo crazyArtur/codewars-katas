@@ -39,3 +39,7 @@ function decrypt(encryptedText, n) {
         return encryptedText;
 
 }
+
+console.log(encrypt('qwerty', 0));
+console.log(encrypt('qwerty', 1));
+console.log(encrypt('qwerty', 2));
