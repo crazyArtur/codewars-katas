@@ -10,8 +10,13 @@ Do this n times!
 function encrypt(text, n) {
     if(text !== null && text != ''){
         let sourceLength = text.length;
+        let oddPart = '';
+        let evenPart = '';
+        for(let i = 0; i+1 < sourceLength; i+=2){
 
-        for(let i = 0; i < )
+
+        }
+        
 
     }
     else
