@@ -31,7 +31,7 @@ function encrypt(text, n) {
 
 function decrypt(encryptedText, n) {
     if(n <= 0)
-        return text;
+        return encryptedText;
 
     if(encryptedText !== null && encryptedText != ''){
         let sourceLength = encryptedText.length;
@@ -40,7 +40,7 @@ function decrypt(encryptedText, n) {
         let textBeforeLastEncryption = '';
         
         if(sourceLength % 2 != 0){
-            encryptedText = encryptedText.slice(0, -1);
+            // encryptedText = encryptedText.slice(0, -1);
             sourceLength--;
         }
 
@@ -48,7 +48,12 @@ function decrypt(encryptedText, n) {
         oddPart = encryptedText.slice(sourceLength/2);
 
         for(let i = 0; i < sourceLength/2; i++){
+
             textBeforeLastEncryption += oddPart[i]+evenPart[i];
+        }
+
+        if((sourceLength+1) % 2 != 0){
+            textBeforeLastEncryption += oddPart[sourceLength/2];
         }
 
         return decrypt(textBeforeLastEncryption, n-1);
@@ -59,10 +64,16 @@ function decrypt(encryptedText, n) {
 
 }
 
-console.log(encrypt('qwerty', 0));
-console.log(encrypt('qwerty', 1));
-console.log(encrypt('qwerty', 2));
+console.log(encrypt('qwertyu', 0));
+console.log(encrypt('qwertyu', 1));
+console.log(encrypt('qwertyu', 2));
 
-console.log(decrypt('rqtwye', 0));
-console.log(decrypt('rqtwye', 1));
-console.log(decrypt('rqtwye', 2));
+console.log(" ");
+
+console.log(decrypt('rqtwyeu', 0));
+console.log(decrypt('rqtwyeu', 1));
+console.log(decrypt('rqtwyeu', 2));
+
+// console.log('i = ', i, ', oddPart = ', oddPart[i], ', evenPart = ', evenPart[i]);
+// console.log('i = ', i, ', oddPart+1 = ', oddPart[i+1], ', evenPart+1 = ', evenPart[i+1]);
+// console.log(" ");
