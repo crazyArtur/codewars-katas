@@ -8,10 +8,9 @@ Do this n times!
 */
 
 function encrypt(text, n) {
-    if(n <= 0)
+    if( text === null && text == ''|| n <= 0 )
         return text;
-
-    if(text !== null && text != ''){
+    else{
         let sourceLength = text.length;
         let oddPart = '';
         let evenPart = '';
@@ -25,43 +24,37 @@ function encrypt(text, n) {
         
         return encrypt(evenPart.concat(oddPart), n-1);
     }
-    else
-        return text;
 }
 
 function decrypt(encryptedText, n) {
-    if(n <= 0)
+    if(encryptedText === null && encryptedText == '' || n <= 0)
         return encryptedText;
-
-    if(encryptedText !== null && encryptedText != ''){
+    else{
         let sourceLength = encryptedText.length;
         let oddPart = '';
         let evenPart = ''
         let textBeforeLastEncryption = '';
         
         if(sourceLength % 2 != 0){
-            // encryptedText = encryptedText.slice(0, -1);
-            sourceLength--;
-        }
+            var middleIndex = (sourceLength-1)/2;
+        }else
+            middleIndex = sourceLength/2
 
-        evenPart = encryptedText.slice(0, sourceLength/2);
-        oddPart = encryptedText.slice(sourceLength/2);
+        evenPart = encryptedText.slice(0, middleIndex);
+        oddPart = encryptedText.slice(middleIndex);
 
-        for(let i = 0; i < sourceLength/2; i++){
-
+        for(let i = 0; i < middleIndex; i++){
             textBeforeLastEncryption += oddPart[i]+evenPart[i];
         }
 
-        if((sourceLength+1) % 2 != 0){
-            textBeforeLastEncryption += oddPart[sourceLength/2];
+        textBeforeLastEncryption = decrypt(textBeforeLastEncryption, n-1);
+
+        if(sourceLength % 2 != 0){
+            textBeforeLastEncryption += oddPart[middleIndex];
         }
 
-        return decrypt(textBeforeLastEncryption, n-1);
-
+        return textBeforeLastEncryption;
     }
-    else
-        return encryptedText;
-
 }
 
 console.log(encrypt('qwertyu', 0));
