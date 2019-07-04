@@ -8,7 +8,7 @@ Do this n times!
 */
 
 function encrypt(text, n) {
-    if( text === null && text == ''|| n <= 0 )
+    if( text === null || text == ''|| n <= 0 )
         return text;
     else{
         let sourceLength = text.length;
@@ -27,7 +27,7 @@ function encrypt(text, n) {
 }
 
 function decrypt(encryptedText, n) {
-    if(encryptedText === null && encryptedText == '' || n <= 0)
+    if(encryptedText === null || encryptedText == '' || n <= 0)
         return encryptedText;
     else{
         let sourceLength = encryptedText.length;
