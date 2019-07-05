@@ -3,8 +3,8 @@
 
 function bouncingBall(h,  bounce,  window) {
     if(h < 0 ||
-       bounce < 0 ||
-       bounce > 1 ||
+       bounce <= 0 ||
+       bounce >= 1 ||
        window >= h)
         return -1;
 
@@ -29,8 +29,8 @@ console.timeEnd("qwert");
 
 function bouncingBallX(h,  bounce,  window) {
     if(h < 0 ||
-       bounce < 0 ||
-       bounce > 1 ||
+       bounce <= 0 ||
+       bounce >= 1 ||
        window >= h)
         return -1;
 
@@ -53,13 +53,16 @@ console.timeEnd("zxcv");
 
 function bouncingBallY(h,  bounce,  window) {
     if(h < 0 ||
-       bounce < 0 ||
-       bounce > 1 ||
-       window >= h)
-        return -1;
-
-    return 1 + Math.floor(2*(Math.log(window/h)/Math.log(bounce)));
-}
+        bounce <= 0 ||
+        bounce >= 1 ||
+        window >= h)
+         return -1;
+ 
+     if(window >= h*bounce)
+        return 1;
+     else
+        return 1 + 2*Math.floor((Math.log(window/h)/Math.log(bounce)));
+ }
 
 console.time("abcd");
 console.log(bouncingBallY(200, 0.99, 1));
