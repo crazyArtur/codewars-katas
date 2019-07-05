@@ -34,15 +34,33 @@ function bouncingBallX(h,  bounce,  window) {
        window >= h)
         return -1;
 
-    let ballSeen = 2;
+    let timesBallWasSeen = 2;
 
     if(h > window)
-        return ballSeen += bouncingBallX(h * bounce, bounce, window);
+        return timesBallWasSeen += bouncingBallX(h * bounce, bounce, window);
     else
         return 1;
-
 }
 
 console.time("zxcv");
 console.log(bouncingBallX(200, 0.99, 1));
 console.timeEnd("zxcv");
+
+// Above examples don't work. 
+// The loop solution is said to execute too long.
+// The recursion solution exceeds stack.
+// I implemented solution based on mathematical model below.
+
+function bouncingBallY(h,  bounce,  window) {
+    if(h < 0 ||
+       bounce < 0 ||
+       bounce > 1 ||
+       window >= h)
+        return -1;
+
+    return 1 + Math.floor(2*(Math.log(window/h)/Math.log(bounce)));
+}
+
+console.time("abcd");
+console.log(bouncingBallY(200, 0.99, 1));
+console.timeEnd("abcd");
