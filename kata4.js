@@ -19,3 +19,9 @@ Test.assertSimilar([1, 2, 3].join([1, 2]), "11,221,23", "")
 Test.assertSimilar([1, 2, 3].Join([1, 2]), [1, 1, 2, 2, 1, 2, 3], "")
 //click "Submit" try more testcase...
 */
+
+var tab = [1,2,4];
+
+let check = tab.join({});
+
+console.log(check);
