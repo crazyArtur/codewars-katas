@@ -14,5 +14,42 @@ longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
 */
 
 function longest(s1, s2) {
-  // your code
+  // var re = new RegExp(s1[0], "g");
+  var string = "";
+  // s1 = s1.replace(re, "");
+  // s2 = s2.replace(re, "");
+
+  do {
+    if (s1.length > 0) {
+      string = string.concat(s1[0]);
+      var re = new RegExp(s1[0], "g");
+      s1 = s1.replace(re, "");
+      s2 = s2.replace(re, "");
+    } else {
+      string = string.concat(s2[0]);
+      var re = new RegExp(s2[0], "g");
+      s2 = s2.replace(re, "");
+    }
+
+  } while (s1.length > 0 || s2.length > 0)
+
+  console.log(string.split('').sort().join(''));
+
 }
+
+longest("yzsuiabbcc", "xwxwxxrrrrxxw");
+
+// var s1 = "abcdef";
+// // let re = /a/gi;
+// console.log(s1);
+
+// var string = s1[0];
+// // var re = /${s1[0]}/gi;
+// do {
+//   var re = new RegExp(s1[0], "g");
+
+//   // console.log(s1.replace(re, ""));
+
+//   s1 = s1.replace(re, "");
+//   console.log(s1);
+// } while (s1.length > 0)
