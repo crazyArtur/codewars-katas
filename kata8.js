@@ -36,8 +36,9 @@ function longest(s1, s2) {
   console.log(string.split('').sort().join(''));
 
 }
-
-longest("yzsuiabbcc", "xwxwxxrrrrxxw");
+var s3 = "yzsuiabbcc";
+var s4 = "xwxwxxrrrrxxw";
+longest(s3, s4);
 
 // var s1 = "abcdef";
 // // let re = /a/gi;
@@ -53,3 +54,22 @@ longest("yzsuiabbcc", "xwxwxxrrrrxxw");
 //   s1 = s1.replace(re, "");
 //   console.log(s1);
 // } while (s1.length > 0)
+
+var s1 = "hola!";
+var s2 = " soy de masovia!";
+
+// console.log(s1);
+// console.log(s2);
+// console.log(s1 + s2);
+
+const long = (s1, s2) => [new Set(s1 + s2)].sort().join('');
+
+console.log(long(s3, s4));
+
+console.log(s3);
+console.log(...s3);
+console.log([...s3]);
+
+for (let it of s2) {
+  console.log(it);
+}
